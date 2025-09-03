@@ -25,6 +25,12 @@ function ProjectCard({ project }) {
             target="_blank"
             rel="noopener noreferrer"
             className="btn custom-btn custom-btn-bg custom-btn-link"
+            style={{
+              padding: "0.5rem 1rem",
+              borderRadius: "50px",
+              textDecoration: "none",
+              fontWeight: "500",
+            }}
           >
             Visit 🚀
           </a>
