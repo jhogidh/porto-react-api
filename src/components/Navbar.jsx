@@ -42,7 +42,7 @@ function Navbar() {
       <div className="container">
         <a className="navbar-brand" href="#about">
           <i className="uil uil-user"></i> Fun
-          <span style={{ color: "#ffc200" }}>Work</span>
+          <span style={{ color: "#ffc200" }}>work</span>
         </a>
 
         {/* Gunakan wrapper untuk menata tombol di sisi kanan */}
