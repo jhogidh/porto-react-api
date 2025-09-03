@@ -11,7 +11,7 @@ function About() {
     >
       <div className="container">
         <div className="row">
-          <div className="col-lg-7 col-md-12 col-12 align-items-center">
+          <div className="col-lg-8 col-md-12 col-12 align-items-center">
             <div className="about-text">
               <h1 className="animated animated-text">
                 <span className="mr-2">Hey folks, I'm</span>
@@ -39,7 +39,7 @@ function About() {
             </div>
           </div>
 
-          <div className="col-lg-5 col-md-12 col-12">
+          <div className="col-lg-4 col-md-12 col-12">
             <div className="about-image svg">
               {/* Gunakan variabel yang diimpor jika menggunakan metode impor */}
               {/* <img src={softwareEngineerImg} className="img-fluid" alt="svg image" /> */}

@@ -18,7 +18,7 @@ body {
 
 @media (max-width: 768px) {
   .full-screen {
-    padding: 3.5rem 0; /* khusus untuk mobile */
+    padding: 1rem 0; /* khusus untuk mobile */
   }
 }
 
@@ -528,7 +528,7 @@ strong {
   .navbar-collapse {
     background: #ffffff;
     text-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 60px;
   }
 
   .navbar-expand-sm .navbar-nav .nav-link {
@@ -654,4 +654,41 @@ strong {
 .swiper-button-next:active::after {
   transform: scale(0.9);
   transition-duration: 0.1s;
+}
+
+/* CSS untuk menengahkan navigasi secara paksa */
+.navbar-center-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* CSS untuk Navbar yang bisa berubah saat scroll */
+
+/* Gaya dasar Navbar */
+.navbar {
+  /* Membuat navbar "menempel" di atas */
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  /* Keadaan Awal: Transparan */
+  background-color: transparent;
+
+  /* KUNCI: Transisi agar perubahan warna background menjadi mulus */
+  transition: background-color 0.4s ease-out, box-shadow 0.4s ease-out;
+
+  z-index: 1030; /* Pastikan navbar selalu di paling depan */
+}
+
+/* ✨ Gaya Navbar SAAT SUDAH DI-SCROLL ✨ */
+.navbar.scrolled {
+  /* Keadaan Setelah Scroll: Solid dengan bayangan */
+  background-color: #ffffff; /* Ganti dengan warna dark-mode jika perlu */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Jika Anda menggunakan dark mode, tambahkan ini */
+body.dark-mode .navbar.scrolled {
+  background-color: #1a1a1a; /* Ganti dengan warna background dark mode Anda */
 }

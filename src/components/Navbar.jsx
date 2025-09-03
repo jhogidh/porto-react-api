@@ -4,6 +4,32 @@ import React, { useEffect, useState } from "react";
 function Navbar() {
   const [isDarkMode, setDarkMode] = useState(false);
 
+  // 1. TAMBAHKAN STATE BARU untuk melacak status scroll
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // 2. GUNAKAN useEffect UNTUK MENDETEKSI SCROLL
+  useEffect(() => {
+    // Fungsi yang akan dijalankan setiap kali user scroll
+    const handleScroll = () => {
+      // Cek posisi scroll vertikal (Y-axis)
+      if (window.scrollY > 50) {
+        // Jika sudah scroll lebih dari 50px
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    // Tambahkan event listener saat komponen pertama kali dirender
+    window.addEventListener("scroll", handleScroll);
+
+    // PENTING: Hapus event listener saat komponen di-unmount
+    // untuk mencegah memory leak
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []); // Array kosong berarti efek ini hanya berjalan sekali (saat mount)
+
   // 1. TAMBAHKAN STATE BARU untuk melacak status collapse navbar
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
 
@@ -23,31 +49,34 @@ function Navbar() {
   }, [isDarkMode]);
 
   return (
-    <nav className="navbar navbar-expand-sm navbar-light">
+    <nav
+      className={`navbar navbar-expand-sm navbar-light fixed-top ${
+        isScrolled ? "scrolled" : ""
+      }`}
+    >
       <div className="container">
         <a className="navbar-brand" href="index.html">
           <i className="uil uil-user"></i> Jo
         </a>
 
-        {/* 2. MODIFIKASI TOMBOL TOGGLE */}
         <button
           className="navbar-toggler"
           type="button"
           aria-controls="navbarNav"
-          aria-expanded={!isNavCollapsed ? true : false} // Dinamis berdasarkan state
+          aria-expanded={!isNavCollapsed ? true : false}
           aria-label="Toggle navigation"
-          onClick={handleNavCollapse} // Panggil fungsi saat diklik
+          onClick={handleNavCollapse}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* 3. MODIFIKASI DIV MENU */}
-        {/* Kelas 'show' akan ditambahkan secara dinamis berdasarkan state */}
         <div
-          className={`${isNavCollapsed ? "collapse" : ""} navbar-collapse`}
+          className={`collapse navbar-collapse ${
+            !isNavCollapsed ? "show" : ""
+          }`}
           id="navbarNav"
         >
-          <ul className="navbar-nav mx-auto">
+          <ul className="navbar-nav navbar-center-links">
             <li className="nav-item">
               <a href="#about" className="nav-link">
                 <span data-hover="About">About</span>

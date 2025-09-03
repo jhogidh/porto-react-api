@@ -16,17 +16,17 @@ function Projects() {
     {
       name: "Cari Film",
       url: "https://cari-film-bagus.vercel.app/",
-      images: "images/project/project-image01.png",
+      images: "images/project/1.png",
     },
     {
       name: "Masak Apa Ya",
       url: "https://masak-apa-ya.vercel.app/",
-      images: "images/project/project-image01.png",
+      images: "images/project/3.png",
     },
     {
       name: "Main Pokemon",
       url: "https://main-pokemon.vercel.app/",
-      images: "images/project/project-image01.png",
+      images: "images/project/2.png",
     },
   ];
 
