@@ -81,9 +81,9 @@ function Navbar() {
             backgroundColor: `${!isDarkMode ? "white" : "#1A1A1A"}`,
           }}
         >
-          <ul className="navbar-nav   w-100">
-            <li className="nav-item ml-lg-auto ml-sm-auto ">
-              <a href="#about" className="nav-link d-flex ">
+          <ul className="navbar-nav w-100">
+            <li className="nav-item ml-lg-auto ml-sm-auto  ">
+              <a href="#about" className="nav-link ">
                 <span
                   data-hover="About"
                   style={{ color: `${isDarkMode ? "white" : "black"}` }}
