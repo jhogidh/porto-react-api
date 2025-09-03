@@ -6,7 +6,6 @@ https://www.tooplate.com/view/2115-marvel
 
 */
 
-
 @import url("https://fonts.googleapis.com/css?family=Maven+Pro:400,700");
 body {
   font-family: "Maven Pro", sans-serif;
@@ -15,6 +14,12 @@ body {
 
 .full-screen {
   padding: 8rem 0;
+}
+
+@media (max-width: 768px) {
+  .full-screen {
+    padding: 3.5rem 0; /* khusus untuk mobile */
+  }
 }
 
 .small-text {
@@ -54,7 +59,12 @@ p {
   color: #5b5b5b;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: bold;
   letter-spacing: -1px;
 }
@@ -76,7 +86,8 @@ h3 {
 }
 
 h3,
-b, strong {
+b,
+strong {
   font-weight: bold;
 }
 
@@ -110,8 +121,8 @@ b, strong {
 .animated-info {
   display: inline-block;
   vertical-align: top;
-  margin-top: 5px;
-  min-width: 260px;
+  margin-top: 6px;
+  min-width: 300px;
   position: relative;
 }
 
@@ -120,7 +131,7 @@ b, strong {
 }
 
 .animated-item {
-  font-size: 38px;
+  font-size: 45px;
   line-height: inherit;
   display: block;
   opacity: 0;
@@ -131,10 +142,10 @@ b, strong {
   left: 0;
   animation: BottomTotop 6s linear infinite 0s;
 }
-.animated-item:nth-child(2n+2) {
+.animated-item:nth-child(2n + 2) {
   animation-delay: 2s;
 }
-.animated-item:nth-child(3n+3) {
+.animated-item:nth-child(3n + 3) {
   animation-delay: 4s;
 }
 
@@ -276,15 +287,15 @@ b, strong {
   right: 6px;
 }
 .color-mode-icon:after {
-  font-family: 'unicons';
-  content: '\ea9f';
+  font-family: "unicons";
+  content: "\ea9f";
   font-size: 30px;
   font-weight: 300;
   font-style: normal;
 }
 .color-mode-icon.active:after {
-  font-family: 'unicons';
-  content: '\eb65';
+  font-family: "unicons";
+  content: "\eb65";
   font-size: 30px;
   color: #ffffff;
 }
@@ -308,7 +319,12 @@ b, strong {
 }
 .dark-mode .feature-card .uil,
 .dark-mode .navbar-light .navbar-brand,
-.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6,
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
 .dark-mode .color-mode {
   color: #ffffff;
 }
@@ -377,27 +393,27 @@ b, strong {
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
-  font-family: 'unicons';
+  font-family: "unicons";
   font-size: 100px;
   line-height: normal;
 }
 .owl-carousel .owl-nav .owl-prev:before {
-  content: '\e833';
+  content: "\e833";
   left: -45px;
 }
 .owl-carousel .owl-nav .owl-next:before {
-  content: '\e836';
+  content: "\e836";
   right: -45px;
 }
 
-.owl-theme .owl-nav [class*=owl-] {
+.owl-theme .owl-nav [class*="owl-"] {
   background: none;
   border-radius: 0;
   margin: 0;
   padding: 0;
   font-size: inherit;
 }
-.owl-theme .owl-nav [class*=owl-]:hover {
+.owl-theme .owl-nav [class*="owl-"]:hover {
   color: #ffc200;
 }
 .owl-theme .owl-dots .owl-dot {
@@ -407,7 +423,8 @@ b, strong {
   width: 8px;
   height: 8px;
 }
-.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
   background: #5b5b5b;
 }
 
@@ -429,7 +446,8 @@ b, strong {
 .contact-form .form-control:not(textarea) {
   height: 48px;
 }
-.contact-form .form-control:hover, .contact-form .form-control:focus {
+.contact-form .form-control:hover,
+.contact-form .form-control:focus {
   border-color: #ffc200;
 }
 .contact-form .submit-btn {
@@ -451,7 +469,8 @@ b, strong {
   position: relative;
   bottom: 8px;
 }
-.contact-info p, .contact-info a {
+.contact-info p,
+.contact-info a {
   color: #f7f3f3;
 }
 
@@ -495,7 +514,7 @@ b, strong {
 }
 @media (max-width: 767px) {
   h1 {
-    font-size: 2.4em;
+    font-size: 2.28em;
   }
 
   h2 {
@@ -517,9 +536,9 @@ b, strong {
   }
 }
 @media (max-width: 580px) {
-	.animated-info {
-		min-width: 200px;
-	}
+  .animated-info {
+    min-width: 220px;
+  }
   .animated-item {
     font-size: 30px;
   }
@@ -552,7 +571,7 @@ b, strong {
   }
 
   .full-screen {
-    padding: 4rem 0;
+    padding: 5rem 0;
   }
 
   .mobile-block {
@@ -567,4 +586,72 @@ b, strong {
     display: inline-block;
     vertical-align: top;
   }
+}
+
+/* ======================================================= */
+/* ===== DESAIN SUPER MINIMALIS (FLOATING) - SWIPER ===== */
+/* ======================================================= */
+
+/* 1. Variabel untuk konsistensi */
+:root {
+  --floating-arrow-color: #555; /* Warna panah di state normal */
+  --floating-arrow-color-hover: #000; /* Warna panah saat hover */
+  --floating-bg-hover: rgba(
+    0,
+    0,
+    0,
+    0.07
+  ); /* Latar belakang yang muncul saat hover */
+}
+
+/* 2. Tombol utama dibuat "tak terlihat", hanya sebagai area klik */
+.swiper-button-prev,
+.swiper-button-next {
+  /* Hapus semua gaya visual dari container tombol */
+  background: none;
+  border: none;
+  border-radius: 0;
+  width: 60px; /* Area klik yang lebih besar */
+  height: 60px; /* Area klik yang lebih besar */
+}
+
+/* 3. Semua gaya visual kita terapkan pada panahnya (::after) */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  /* Ukuran dan warna panah */
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--floating-arrow-color);
+
+  /* Membuat "wadah" lingkaran untuk panah, tapi transparan */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+
+  /* Transisi untuk semua efek agar super mulus */
+  transition: all 0.25s ease-out;
+}
+
+/* 4. ✨ Interaksi Utama Saat Hover ✨ */
+.swiper-button-prev:hover::after,
+.swiper-button-next:hover::after {
+  /* Latar belakang lingkaran yang lembut akan FADE IN */
+  background-color: var(--floating-bg-hover);
+
+  /* Warna panah menjadi lebih tegas */
+  color: var(--floating-arrow-color-hover);
+
+  /* Panah sedikit membesar untuk feedback */
+  transform: scale(1.1);
+}
+
+/* 5. Feedback saat klik, dibuat sangat cepat dan responsif */
+.swiper-button-prev:active::after,
+.swiper-button-next:active::after {
+  transform: scale(0.9);
+  transition-duration: 0.1s;
 }

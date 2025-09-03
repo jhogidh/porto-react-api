@@ -11,35 +11,29 @@ function About() {
     >
       <div className="container">
         <div className="row">
-          <div className="col-lg-7 col-md-12 col-12 d-flex align-items-center">
+          <div className="col-lg-7 col-md-12 col-12 align-items-center">
             <div className="about-text">
-              <small className="small-text">
-                Welcome to{" "}
-                <span className="mobile-block">my portfolio website!</span>
-              </small>
               <h1 className="animated animated-text">
                 <span className="mr-2">Hey folks, I'm</span>
                 <div className="animated-info">
-                  <span className="animated-item">Marvel Sann</span>
-                  <span className="animated-item">Web Designer</span>
-                  <span className="animated-item">UI Specialist</span>
+                  <span className="animated-item">Jo</span>
+                  <span className="animated-item">Web Enthusiast</span>
+                  <span className="animated-item">Code Nerd</span>
                 </div>
               </h1>
               <p>
-                Building a successful product is a challenge. I am highly
-                energetic in user experience design, interfaces and web
-                development.
+                Here some React side projects born from my downtime curiosity 😉
               </p>
 
               <div className="custom-btn-group mt-4">
-                <a href="#" className="btn mr-lg-2 custom-btn">
-                  <i className="uil uil-file-alt"></i> Download Resume
+                <a href="#project" className="btn mr-lg-2 custom-btn">
+                  <i className="uil uil-file-alt"></i> Check Out
                 </a>
                 <a
-                  href="#contact"
+                  href="#project"
                   className="btn custom-btn custom-btn-bg custom-btn-link"
                 >
-                  Get a free quote
+                  Checkout
                 </a>
               </div>
             </div>

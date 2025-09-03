@@ -18,8 +18,8 @@ function App() {
       <Navbar />
       <About />
       <Projects />
-      <Resume />
-      <Contact />
+      {/* <Resume />
+      <Contact /> */}
       <Footer />
     </>
   );

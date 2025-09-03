@@ -8,10 +8,12 @@ function Footer() {
         <div className="row">
           <div className="col-lg-12 col-12">
             <p className="copyright-text text-center">
-              Copyright &copy; 2019 Company Name . All rights reserved
+              Copyright &copy; 2025{" "}
+              <a href="https://www.instagram.com/jo.gidion">@Jo.Gidion</a> . All
+              rights reserved
             </p>
             <p className="copyright-text text-center">
-              Designed by{" "}
+              Credits to{" "}
               <a rel="nofollow" href="https://www.facebook.com/tooplate">
                 Tooplate
               </a>
