@@ -9,6 +9,15 @@ function Projects() {
   const [slidesToShow, setSlidesToShow] = useState(3);
   const [isHovering, setIsHovering] = useState(false);
 
+  // --- CATATAN: KODE BARU UNTUK FUNGSI SWIPE ---
+  // State untuk melacak posisi awal sentuhan di sumbu X
+  const [touchStart, setTouchStart] = useState(null);
+  // State untuk melacak posisi akhir sentuhan di sumbu X
+  const [touchEnd, setTouchEnd] = useState(null);
+  // Jarak minimal (dalam piksel) agar gerakan dianggap sebagai swipe
+  const minSwipeDistance = 50;
+  // --- AKHIR CATATAN ---
+
   const updateSlidesToShow = () => {
     if (window.innerWidth >= 1024) {
       setSlidesToShow(3);
@@ -58,6 +67,32 @@ function Projects() {
     setCurrentIndex(index);
   };
 
+  // Dijalankan saat jari pertama kali menyentuh layar
+  const handleTouchStart = (e) => {
+    setTouchEnd(null); // Reset posisi akhir
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  // Dijalankan saat jari bergerak di atas layar
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  // Dijalankan saat jari diangkat dari layar untuk menentukan arah swipe
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      handleNext();
+    } else if (isRightSwipe) {
+      handlePrev();
+    }
+  };
+  // --- AKHIR CATATAN ---
+
   return (
     <>
       <section className="project py-5" id="project">
@@ -76,6 +111,9 @@ function Projects() {
                 className="custom-carousel-container"
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
               >
                 <div
                   className="carousel-track"
