@@ -12,12 +12,12 @@ function Footer() {
               <a href="https://www.instagram.com/jo.gidion">@Jo.Gidion</a> . All
               rights reserved
             </p>
-            <p className="copyright-text text-center">
+            {/* <p className="copyright-text text-center">
               Credits to{" "}
               <a rel="nofollow" href="https://www.facebook.com/tooplate">
                 Tooplate
               </a>
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

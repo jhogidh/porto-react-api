@@ -3,112 +3,118 @@ import React, { useEffect, useState } from "react";
 
 function Navbar() {
   const [isDarkMode, setDarkMode] = useState(false);
-
-  // 1. TAMBAHKAN STATE BARU untuk melacak status scroll
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // 2. GUNAKAN useEffect UNTUK MENDETEKSI SCROLL
+  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
+  const toggleColorMode = () => setDarkMode(!isDarkMode);
+
+  // ... (useEffect hooks Anda tidak perlu diubah) ...
   useEffect(() => {
-    // Fungsi yang akan dijalankan setiap kali user scroll
     const handleScroll = () => {
-      // Cek posisi scroll vertikal (Y-axis)
       if (window.scrollY > 50) {
-        // Jika sudah scroll lebih dari 50px
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
     };
-
-    // Tambahkan event listener saat komponen pertama kali dirender
     window.addEventListener("scroll", handleScroll);
-
-    // PENTING: Hapus event listener saat komponen di-unmount
-    // untuk mencegah memory leak
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []); // Array kosong berarti efek ini hanya berjalan sekali (saat mount)
-
-  // 1. TAMBAHKAN STATE BARU untuk melacak status collapse navbar
-  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
-
-  // Fungsi untuk mengubah state collapse saat tombol diklik
-  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
-
-  const toggleColorMode = () => {
-    setDarkMode(!isDarkMode);
-  };
+  }, []);
 
   useEffect(() => {
-    if (isDarkMode) {
-      document.body.classList.add("dark-mode");
-    } else {
-      document.body.classList.remove("dark-mode");
-    }
+    document.body.classList.toggle("dark-mode", isDarkMode);
   }, [isDarkMode]);
 
   return (
     <nav
-      className={`navbar navbar-expand-sm navbar-light fixed-top ${
+      className={`navbar navbar-expand-md navbar-expand-sm navbar-light fixed-top ${
         isScrolled ? "scrolled" : ""
       }`}
     >
       <div className="container">
-        <a className="navbar-brand" href="index.html">
+        <a className="navbar-brand" href="#about">
           <i className="uil uil-user"></i> Jo
         </a>
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          aria-controls="navbarNav"
-          aria-expanded={!isNavCollapsed ? true : false}
-          aria-label="Toggle navigation"
-          onClick={handleNavCollapse}
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+        {/* Gunakan wrapper untuk menata tombol di sisi kanan */}
+        <div className="d-flex align-items-center d-lg-none d-md-none ">
+          {/* 1. TOMBOL DARK MODE BARU UNTUK MOBILE */}
+          {/* d-lg-none artinya: tampil di semua ukuran KECUALI lg (large) ke atas */}
+          <button
+            className="btn-warning border-0 "
+            onClick={toggleColorMode}
+            aria-label="Toggle color mode"
+            style={{ marginRight: "10px", backgroundColor: "transparent" }}
+          >
+            {/* Ikon akan berubah berdasarkan state isDarkMode */}
+            <i
+              className={`uil ${isDarkMode ? "uil-sun" : "uil-moon"}`}
+              style={{ color: `${isDarkMode ? "white" : "black"}` }}
+            ></i>
+          </button>
+
+          {/* Tombol Toggler Hamburger */}
+          <button
+            className="navbar-toggler"
+            type="button"
+            aria-controls="navbarNav"
+            aria-expanded={!isNavCollapsed ? true : false}
+            aria-label="Toggle navigation"
+            onClick={handleNavCollapse}
+          >
+            <i
+              className="uil uil-bars"
+              style={{ color: `${isDarkMode ? "white" : "black"}` }}
+            ></i>
+          </button>
+        </div>
 
         <div
           className={`collapse navbar-collapse ${
             !isNavCollapsed ? "show" : ""
           }`}
           id="navbarNav"
+          style={{
+            backgroundColor: `${!isDarkMode ? "white" : "#1A1A1A"}`,
+          }}
         >
-          <ul className="navbar-nav navbar-center-links">
-            <li className="nav-item">
-              <a href="#about" className="nav-link">
-                <span data-hover="About">About</span>
+          <ul className="navbar-nav   w-100">
+            <li className="nav-item ml-lg-auto ml-sm-auto ">
+              <a href="#about" className="nav-link d-flex ">
+                <span
+                  data-hover="About"
+                  style={{ color: `${isDarkMode ? "white" : "black"}` }}
+                >
+                  About
+                </span>
               </a>
             </li>
-            <li className="nav-item">
+            <li className="nav-item ">
               <a href="#project" className="nav-link">
-                <span data-hover="Projects">Projects</span>
+                <span
+                  data-hover="Projects"
+                  style={{ color: `${isDarkMode ? "white" : "black"}` }}
+                >
+                  Projects
+                </span>
               </a>
             </li>
-            {/* <li className="nav-item">
-              <a href="#resume" className="nav-link">
-                <span data-hover="Resume">Resume</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#contact" className="nav-link">
-                <span data-hover="Contact">Contact</span>
-              </a>
-            </li> */}
-          </ul>
 
-          <ul className="navbar-nav ml-lg-auto">
-            <div className="ml-lg-4">
+            {/* 2. TOMBOL DARK MODE LAMA UNTUK DESKTOP */}
+            {/* d-none d-lg-flex artinya: sembunyi di mobile, tampil sebagai flex di desktop */}
+            <li className="nav-item ml-lg-auto ml-sm-auto d-none d-md-flex d-sm-flex d-lg-flex">
               <div
-                className="color-mode d-lg-flex justify-content-center align-items-center"
+                className="color-mode d-flex justify-content-center align-items-center"
                 onClick={toggleColorMode}
+                style={{ cursor: "pointer" }}
               >
                 <i className="color-mode-icon"></i>
                 Color mode
               </div>
-            </div>
+            </li>
           </ul>
         </div>
       </div>

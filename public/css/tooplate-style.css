@@ -131,7 +131,7 @@ strong {
 }
 
 .animated-item {
-  font-size: 45px;
+  font-size: 38px;
   line-height: inherit;
   display: block;
   opacity: 0;
@@ -210,6 +210,8 @@ strong {
   font-weight: bold;
   font-size: 16px;
   overflow: hidden;
+  padding: 3px 20px;
+  margin-top: 10px;
 }
 .nav-link span {
   position: relative;
@@ -528,11 +530,11 @@ strong {
   .navbar-collapse {
     background: #ffffff;
     text-align: center;
-    padding-bottom: 60px;
+    padding-bottom: 5px;
   }
 
   .navbar-expand-sm .navbar-nav .nav-link {
-    padding: 3px 20px;
+    padding: 0px 20px;
   }
 }
 @media (max-width: 580px) {

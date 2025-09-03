@@ -26,14 +26,14 @@ function About() {
               </p>
 
               <div className="custom-btn-group mt-4">
-                <a href="#project" className="btn mr-lg-2 custom-btn">
-                  <i className="uil uil-file-alt"></i> Check Out
-                </a>
+                {/* <a href="#project" className="btn mr-lg-2 custom-btn">
+                  <i className="uil uil-file-alt"></i> 
+                </a> */}
                 <a
                   href="#project"
                   className="btn custom-btn custom-btn-bg custom-btn-link"
                 >
-                  Checkout
+                  Hop in ✨
                 </a>
               </div>
             </div>
@@ -44,7 +44,7 @@ function About() {
               {/* Gunakan variabel yang diimpor jika menggunakan metode impor */}
               {/* <img src={softwareEngineerImg} className="img-fluid" alt="svg image" /> */}
               <img
-                src="images/undraw/undraw_software_engineer_lvl5.svg"
+                src="images/undraw/illustration.svg"
                 className="img-fluid"
                 alt="svg image"
               />

@@ -19,7 +19,7 @@ function Projects() {
       images: "images/project/1.png",
     },
     {
-      name: "Masak Apa Ya",
+      name: "Masak Apa",
       url: "https://masak-apa-ya.vercel.app/",
       images: "images/project/3.png",
     },
@@ -35,10 +35,10 @@ function Projects() {
       <div className="container">
         <div className="row">
           <div className="col-lg-11 text-center mx-auto col-12">
-            <div className="col-lg-8 mx-auto">
+            <div className="col-lg-8 mx-auto mb-5">
               <h2>
-                Messing around with React.js, some cool APIs, running on Vercel,
-                with a little help from the big guy, Google Gemini 😉
+                Messing around with <span className="text-info">React.js</span>{" "}
+                & some cool <span className="text-primary">APIs </span>😉
               </h2>
             </div>
 
