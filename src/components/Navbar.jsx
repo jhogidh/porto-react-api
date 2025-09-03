@@ -26,6 +26,11 @@ function Navbar() {
 
   useEffect(() => {
     document.body.classList.toggle("dark-mode", isDarkMode);
+    if (isDarkMode) {
+      document.body.classList.add("dark-theme");
+    } else {
+      document.body.classList.remove("dark-theme");
+    }
   }, [isDarkMode]);
 
   return (

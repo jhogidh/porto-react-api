@@ -1,0 +1,197 @@
+:root {
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --card-shadow-hover: rgba(0, 0, 0, 0.15);
+  --text-primary: #333333;
+  --border-color: #f0f0f0;
+  --button-bg: #0d6efd;
+  --button-bg-hover: #0b5ed7;
+  --button-text: #ffffff;
+  --arrow-bg: rgba(255, 255, 255, 0.8);
+  --arrow-color: #000;
+  --dot-color: #ccc;
+  --dot-active-color: #0d6efd;
+  --section-bg: #f8f9fa; /* Warna background section light */
+}
+
+body.dark-theme {
+  --card-bg: #2d3748;
+  --card-shadow: rgba(0, 0, 0, 0.4);
+  --card-shadow-hover: rgba(0, 0, 0, 0.6);
+  --text-primary: #f7fafc;
+  --border-color: #4a5568;
+  --button-bg: #3182ce;
+  --button-bg-hover: #2b6cb0;
+  --arrow-bg: rgba(45, 55, 72, 0.8);
+  --arrow-color: #fff;
+  --dot-color: #4a5568;
+  --dot-active-color: #3182ce;
+  --section-bg: #1a202c; /* Warna background section dark */
+}
+
+/* Styling Tombol Tema */
+.theme-toggle-btn {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+.theme-toggle-btn:hover {
+  background-color: var(--button-bg-hover);
+}
+
+/* Section Background */
+.project {
+  background-color: var(--section-bg);
+  transition: background-color 0.3s ease;
+}
+
+/* Carousel Container */
+.custom-carousel-container {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  flex-shrink: 0;
+  padding: 0 15px; /* spaceBetween / 2 */
+}
+
+/* Navigasi Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--arrow-bg);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  color: var(--arrow-color);
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.carousel-arrow.left {
+  left: 10px;
+}
+.carousel-arrow.right {
+  right: 10px;
+}
+
+/* Pagination Dots */
+.carousel-dots {
+  text-align: center;
+  padding-top: 20px;
+}
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: var(--dot-color);
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.dot.active {
+  background-color: var(--dot-active-color);
+}
+
+/* Styling untuk Kartu Proyek */
+.project-card-wrapper {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px var(--card-shadow-hover);
+}
+
+.project-image-container {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.project-image-container:hover .project-image {
+  transform: scale(1.1);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-image-container:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-info-content {
+  padding: 0.25rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-color);
+  flex-grow: 1;
+}
+
+.project-name-static {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.visit-btn {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.visit-btn:hover {
+  background-color: var(--button-bg-hover);
+  color: var(--button-text);
+}
