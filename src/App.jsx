@@ -6,6 +6,7 @@ import Projects from "./components/Projects";
 import Resume from "./components/Resume";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 // Impor file CSS Anda di sini jika diperlukan
 // import './css/bootstrap.min.css';
